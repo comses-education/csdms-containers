@@ -9,5 +9,7 @@ ENV prefix=/opt/${name}
 
 RUN git clone https://github.com/csdms/jupyterhub-management ${prefix}
 WORKDIR ${prefix}/environments
-RUN mamba env create --file csdms.yaml
-RUN conda activate ${name}
+RUN mamba env create --file ${name}.yaml
+RUN echo "source activate ${name}" > ~/.bashrc
+
+WORKDIR /opt

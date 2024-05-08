@@ -1,0 +1,24 @@
+Bootstrap: docker
+From: ubuntu:22.04
+
+%help
+    Defines an Apptainer/Singularity base image for CSDMS Workbench software.
+
+%environment
+    . /opt/conda/etc/profile.d/conda.sh
+    conda activate csdms
+
+%files
+    csdms.yml /opt/csdms.yml
+
+%post
+    apt-get update -y
+    apt-get install -y build-essential wget
+
+    wget https://github.com/conda-forge/miniforge/releases/latest/download/Miniforge3-Linux-x86_64.sh
+    bash Miniforge3-Linux-x86_64.sh -b -f -p /opt/conda
+    rm Miniforge3-Linux-x86_64.sh
+
+    . /opt/conda/etc/profile.d/conda.sh
+    conda env create --file /opt/csdms.yml
+    conda activate csdms

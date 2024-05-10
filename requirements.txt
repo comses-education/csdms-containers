@@ -1,1 +1,8 @@
-bmi-heat @git+https://github.com/csdms/bmi-example-python@v2.1.2
+git
+bmi-geotiff
+bmi-topography
+bmi-tester
+bmi-wavewatch3
+bmipy
+landlab >=2.7
+pymt >=1.3

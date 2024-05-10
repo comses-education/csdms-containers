@@ -13,7 +13,7 @@ From: ubuntu:22.04
 
 %post
     apt-get update -y
-    apt-get install -y build-essential wget
+    apt-get install -y build-essential wget git
 
     wget https://github.com/conda-forge/miniforge/releases/latest/download/Miniforge3-Linux-x86_64.sh
     bash Miniforge3-Linux-x86_64.sh -b -f -p /opt/conda
